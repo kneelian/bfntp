@@ -33,4 +33,4 @@
 *.a
 
 # FMT includes
-*.h*
+*.h
