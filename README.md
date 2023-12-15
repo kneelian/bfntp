@@ -16,6 +16,10 @@ Apart from just interpreting Brainfuck code directly, `bfntp` has the ability to
 
 There are many obvious clean-up areas and optimisation tactics that aren't used: `bfntp` was put together in the span of a few evenings and is not an exceptionally powerful tool, but it does fully support all vanilla Brainfuck features. Physical limitations aside, it provides a full Turing-complete environment (though not a particularly fast one).
 
+## Usage
+
+`bfntp` is a bit finnicky to use. It takes the filepath of the brainfuck input file as its first argument, and all other command-line options always follow it. It will complain if the first argument isn't a file path. You can use the option `-h` to see the full set of options provided by `bfntp` and commentary on each of them (obviously, you don't need to provide a file path for the usage notes).
+
 ## Building
 
 There is one external dependency, [fmt](https://github.com/fmtlib/fmt), and was built against v10.0.0 of the library; it expects its headers in `./include/fmt`, and its shared library object in `./lib`. There is a `build.sh` script in the root directory, the contents of which are simply `g++ main.cpp -o main.a -O3 -Iinclude -L./lib -lfmt`. The `fmt` library can be relatively easily replaced with `printf()`, though I haven't taken the time to do so as I wanted to experiment a little with it. `bfntp` should build with any compiler compatible with C++11, as the `fmt` header uses type traits, and `bfntp` itself uses fixed-width integer types. Rewriting it to comply with C++03 would probably be an easy job (replace `fmt`, and either add `#include <cstdint>` or just use the regular types), but it's more hassle than I feel is worth (I don't see myself using a compiler that's stuck on C++03 any time soon).
