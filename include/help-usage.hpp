@@ -6,7 +6,7 @@
 
 void print_help()
 {
-	fmt::print("{0} v0.1a usage notes\n", 
+	fmt::print("{0} v0.2a usage notes\n", 
         fmt::styled("bfntp" , fmt::fg(fmt::color::orange_red) | fmt::emphasis::bold)
     );
     fmt::print("  {0} source [options]:\n",
@@ -32,13 +32,13 @@ void print_help()
     fmt::print("    -o: optimised: attempts to do some elementary constant simplification\n");
     fmt::print("                   such as zero loop elimination and condensing moves and\n");
     fmt::print("                   arithmetic into one operation\n");
-    fmt::print("                   {0}: negates the -c flag because some optimisations",
+    fmt::print("                   {0}: negates the -c flag because some optimisations\n",
         fmt::styled("note", fmt::emphasis::bold)
     );
     fmt::print("                   invalidate op counts.\n");
     fmt::print("    -t: transpile: instead of executing the brainfuck code directly, it\n");
     fmt::print("                   will print a transpiled CPP equivalent of the code and\n");
     fmt::print("                   exit. You can then compile the output using a normally\n");
-    fmt::print("                   conforming CPP compiler");
+    fmt::print("                   conforming CPP compiler\n");
     return;
 }
