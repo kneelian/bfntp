@@ -4,8 +4,6 @@
 #include <vector>
 #include <string>
 
-#include <regex>
-
 #include "help-usage.hpp"
 
 #include "fmt/core.h"
