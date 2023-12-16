@@ -16,6 +16,15 @@ Apart from just interpreting Brainfuck code directly, `bfntp` has the ability to
 
 There are many obvious clean-up areas and optimisation tactics that aren't used: `bfntp` was put together in the span of a few evenings and is not an exceptionally powerful tool, but it does fully support all vanilla Brainfuck features. Physical limitations aside, it provides a full Turing-complete environment (though not a particularly fast one).
 
+Currently, `bfntp` has the following optimisations implemented and planned:
+
+- [x] clear-loop elimination (`[-]` and `[+]` alone)
+- [x] run-length encoding (folding e.g. `>>>>` into the struct `{4, RIGHT}`)
+- [ ] folding of elementary arithmetic (e.g. `[->>>+<<<]` into `{3, ADD_RIGHT}`)
+- [ ] fusing of moves into operations in general (e.g. `>>>+++<<<` into `{3, 3, RIGHT, ADD}`)?
+- [ ] dead loop elimination (e.g. elision of `[-][>+++<-]`)?
+- [ ] folding of zero-add into assignment (e.g. `[-]+++++` into `{5, ASSIGN}`)? 
+
 ## Usage
 
 `bfntp` is a bit finnicky to use. It takes the filepath of the brainfuck input file as its first argument, and all other command-line options always follow it. It will complain if the first argument isn't a file path. You can use the option `-h` to see the full set of options provided by `bfntp` and commentary on each of them (obviously, you don't need to provide a file path for the usage notes).
